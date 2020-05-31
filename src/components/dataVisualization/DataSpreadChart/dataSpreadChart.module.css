@@ -1,0 +1,63 @@
+.Chart {
+	position: relative;
+	width: 355px;
+	height: 260px;
+	top: -33px;
+	left: 15px;
+	border-radius: 8px;
+	color: white;
+	
+}
+
+.LineChart{
+	background-color:#1CBFD4;
+	box-shadow: 0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px #1CBFD4;
+}
+
+.BarChart{
+	background-color:#FC9811;
+	box-shadow: 0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px #FC9811;
+	
+}
+.RecoverdChart{
+	background-color:#28a745;
+	box-shadow: 0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px #28a745;
+}
+
+.LineCharts {
+	display: flex;
+	justify-content: center;
+	margin-top: 25px;
+}
+.ChartGrid {
+	width: 387px;
+	margin: 15px;
+	height: 286px;
+	background-color: #fff;
+	border-radius: 0.5rem;
+	box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+		0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+	position: relative;
+	
+	justify-content: center;
+}
+
+.ChartDetails{
+	margin-top: -16px;
+    display: flex;
+    /* margin-bottom: 0; */
+    /* padding: 0; */
+    margin-left: 20px;
+    /* border-bottom: 1px solid; */
+    border-top: 1px solid #999;
+    margin-right: 20px;
+}
+
+.Detail{
+	display: flex;
+   
+}
+.newCasestxt{
+	font-weight: bold;
+    font-size: 16px;
+}

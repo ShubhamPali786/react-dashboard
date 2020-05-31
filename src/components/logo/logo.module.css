@@ -1,0 +1,21 @@
+.Logo {
+    width: 4vw;
+    /* float: left; */
+    /* margin: 0 auto; */
+    text-align: center;
+    border: 1px solid #e1e2e6;
+    background-color: #e1e2e6;
+    height: inherit;
+    padding: 0px;
+    border-width: inherit;
+    left: 0;
+}
+
+.Logo img {
+    height: 100%;
+}
+@media only screen and (max-width: 500px) and (min-width:320px) {
+    .Logo{
+        width: 15vw;
+    }
+}

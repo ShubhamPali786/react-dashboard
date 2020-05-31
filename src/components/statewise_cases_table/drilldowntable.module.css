@@ -1,0 +1,108 @@
+.tableContainer {
+	margin-left: 20px;
+}
+.tableBuilder {
+	overflow-y: scroll;
+	height: 286px;
+}
+table tbody, table thead
+{
+    display: block;
+}
+table{
+	margin-bottom: 12px;
+}
+
+th,
+td {
+	border: 1px solid #dee2e6;
+	text-align: center;
+	border-radius: 3px;
+	width: 145px;
+}
+tr:nth-child(even) {
+	background-color: rgba(0,0,0,.05);
+}
+tbody tr:hover{
+	background-color:#bdbdc2 ;
+}
+.statewise_component {
+	display: flex;
+	margin: 15px;
+
+	background-color: #fff;
+	border-radius: 0.5rem;
+	box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+		0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+	position: relative;
+}
+.tblHeading {
+	background-color: #1CBFD4;
+    color: white;
+}
+.collapsableDiv{
+	position: relative;
+    text-align: left;
+}
+
+.heading{
+	margin-left: 15px;
+}
+.deltaconfirmed{
+	
+}
+.overall_percent_container{
+	position: absolute;
+    /* bottom: 0; */
+    /* width: 100%; */
+    left: 11px;
+    text-align: center;
+    border: 1px solid #bdbdc2;
+    margin-top: 15px;
+    border-radius: 1px;
+  width: 100px;
+    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+	
+}
+.overall_percent_msg{
+	color: white;
+    background-color: #1CBFD4;
+    font-weight: bold;
+    margin: 0;
+    font-size: 21px;
+    /* margin-bottom: 2px; */
+    border-radius: 4px;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+.state_title{
+	border-bottom: 1px solid white;
+    background-color: #eee;
+}
+.state_title > p{
+	margin: 0 auto;
+}
+.confirmed_perent{
+	border-bottom: 1px solid white;
+	background-color: #FF073A;
+}
+.confirmed_perent > p{
+	margin: 0 auto;
+    color: white;
+}
+.recovered_perent{
+	border-bottom: 1px solid white;
+    background-color: #28A745;
+}
+.recovered_perent > p{
+	margin: 0 auto;
+    color: white;
+}
+.active_perent{
+	background-color: #007bff;
+}
+
+.active_perent > p {
+	margin: 0 auto;
+    color: white;
+}

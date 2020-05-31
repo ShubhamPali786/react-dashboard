@@ -1,0 +1,66 @@
+.Confirmed {
+    width: 12%; 
+    padding: 15px;
+    /* margin-left: 14px; */
+    top:-35px;
+    background-color: #ff073a;
+    /* padding-right: 1px; */
+    position: absolute;
+    text-align: center;
+    margin-left: 15px;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px rgb(255,0,0);
+    border-radius: 7px;
+    padding-bottom: 31px;
+
+}
+
+.Active {
+    width: 12%; 
+    position: absolute;
+    padding: 15px;
+    /* margin-left: 14px; */
+    top:-35px;
+    background-color: #007bff;
+    /* padding-right: 1px; */
+
+    text-align: center;
+    margin-left: 15px;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px #007bff;
+    border-radius: 7px;
+    padding-bottom: 31px;
+
+}
+
+.Recovered {
+    width: 12%; 
+    position: absolute;
+    padding: 15px;
+    /* margin-left: 14px; */
+    top:-35px;
+    background-color: #28a745;
+    /* padding-right: 1px; */
+
+    text-align: center;
+    margin-left: 15px;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px #28a745;
+    border-radius: 7px;
+    padding-bottom: 31px;
+
+}
+
+.Deceased {
+    width: 12%; 
+    position: absolute;
+    padding: 15px;
+    /* margin-left: 14px; */
+    top:-35px;
+    background-color: #6c757d;
+    /* padding-right: 1px; */
+
+    text-align: center;
+    margin-left: 15px;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px #6c757d;
+    border-radius: 7px;
+    padding-bottom: 31px;
+
+}

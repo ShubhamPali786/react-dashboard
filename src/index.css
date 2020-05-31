@@ -1,0 +1,173 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #eee;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.icon{
+  font-size: 2rem;
+  color: #fff;
+}
+
+.upwardIcon{
+  font-size: 2rem;
+  margin-top: 7px;
+  color:  #ff073a;
+}
+
+.red{
+  color: #ff073a;
+}
+.green{
+  color: #28a745;
+}
+
+.tableScroll::-webkit-scrollbar {
+  width: 5px;               /* width of the entire scrollbar */
+}
+.tableScroll::-webkit-scrollbar-track {
+  background: white;        /* color of the tracking area */
+}
+.tableScroll::-webkit-scrollbar-thumb {
+  background-color: rgb(194, 188, 188);    /* color of the scroll thumb */
+         /* roundness of the scroll thumb */
+    /* creates padding around scroll thumb */
+}
+
+.districtRow{
+  
+}
+.show{
+  display: block;
+
+}
+.hide{
+  display: none;
+}
+.arrow{
+	position: absolute;
+  left: 0;
+  transform: rotate(0deg);
+  transition: all .5s;
+}
+.arrow-rotate{
+  transform: rotate(90deg);
+    transition: all .5s;
+    position: absolute;
+    left: 0;
+}
+.district{
+
+}
+
+.Red > td.district {
+  background-color: #FF073A;
+  color: white;
+}
+.Orange > td.district{
+  background-color: #FFB300;
+  color: white;
+}
+.Green > td.district{
+	background-color: #28A745;
+    color: white;
+}
+
+[data-district='districtVisible'] > th{
+  background-color:#bdbdc2 ;
+  
+}
+
+.district-space > td{
+  background-color: white;
+  border: none;
+}
+.zone{
+  margin-left: 4px;
+  width: 13px;
+  border-radius: 3px;
+  height: 12px;
+  display: inline-block;
+}
+.zone-red{
+  background-color: #FF073A;
+}
+.zone-orange{
+  background-color: #FFB300;
+}
+.zone-green{
+  background-color: #28A745;
+}
+.legends{
+  background-color: #D9ECF3;
+  border-radius: 4px;
+  margin-left: 2px;
+  display: inline-block;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.zone-text{
+  margin-left: 5px;
+    font-size: 12px;
+    margin-right: 3px;
+}
+.district-space-container{
+  display: flex;
+    background-color: #D9ECF3;
+    position: relative;
+    margin: 2px;
+    border-radius: 3px;
+    border: 1px solid #dee2e6;
+    vertical-align: middle
+}
+.lastUpdated{
+  position: absolute;
+    right: 0;
+    vertical-align: middle;
+    margin-top: 5px;
+}
+.lastUpdated > p{
+  margin: 0 auto;
+}
+.test{
+  position: absolute;
+    width: 50%;
+    /* right: 0; */
+    /* border: 1px solid #eee; */
+    height: 85%;
+    margin-top: 25px;
+    /* margin-bottom: -2px; */
+    padding-right: 10px;
+    padding-left: 10px;
+    /* border-radius: 5px; */
+    /* box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);*/
+}
+
+
+.district_state_chart_container{
+  position: relative;
+  width: 45%;
+  /* right: 0; */
+  margin-bottom: 14px;
+  margin-top: 20px;
+  margin-left: 15px;
+  display: flex;
+  border: 1px solid #bdbdc2;
+  /* height: 103%; */
+  justify-content: center;
+  border-radius: 5px;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+}
+
+body{
+ 
+}

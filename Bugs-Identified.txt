@@ -1,0 +1,5 @@
+Bugs:
+
+1. If website is not update then zero count is displayed in newly added today. Update it !
+2. left and right alignment of the site should be similar throughout the page.
+3. Recovery graph arrow should be green for upper
