@@ -5,10 +5,13 @@
 	overflow-y: scroll;
 	height: 286px;
 }
-table tbody, table thead
-{
-    display: block;
-}
+thead th {
+	position:sticky;
+	top:0;
+	background-color: #1CBFD4;
+	color: white;
+	z-index: 200;
+	}
 table{
 	margin-bottom: 12px;
 }
@@ -16,15 +19,18 @@ table{
 th,
 td {
 	border: 1px solid #dee2e6;
-	text-align: center;
+	text-align: end;
 	border-radius: 3px;
-	width: 145px;
+	width: 10%;
 }
 tr:nth-child(even) {
 	background-color: rgba(0,0,0,.05);
 }
 tbody tr:hover{
 	background-color:#bdbdc2 ;
+}
+th:first-child{
+	text-align: start;
 }
 .statewise_component {
 	display: flex;
@@ -49,7 +55,22 @@ tbody tr:hover{
 	margin-left: 15px;
 }
 .deltaconfirmed{
-	
+	font-size: .7rem;
+    color: #FF073A;
+    font-weight: bold;
+}
+.deltarecovered{
+	font-size: .7rem;
+    color: #28a745;
+    font-weight: bold;
+}
+.deltadeaths{
+	font-size: .7rem;
+    color: #6c757d;
+    font-weight: bold;
+}
+.confirmed{
+
 }
 .overall_percent_container{
 	position: absolute;
@@ -105,4 +126,37 @@ tbody tr:hover{
 .active_perent > p {
 	margin: 0 auto;
     color: white;
+}
+.table_container{
+	overflow-y: scroll;
+	height: 350px;
+	width: 50rem;
+}
+
+@media only screen and (max-width: 500px) and (min-width:320px) {
+
+	.table_container{
+		overflow-x: scroll;
+	}
+
+	tr{
+		line-height: 1.5rem;
+	}
+
+	.statewise_component{
+		display: block;
+	}
+
+	.tableContainer{
+		width: 100%;
+    margin: 0 auto;
+	}
+	table{
+		
+		width: 100%;
+	}
+	.overall_percent_container{
+		display: none;
+	}
+
 }

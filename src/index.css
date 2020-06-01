@@ -81,11 +81,31 @@ code {
 	background-color: #28A745;
     color: white;
 }
+[data-district='districtVisible']{
+  animation: slide-up 0.7s ease;;
+}
+
+@keyframes slide-up {
+  0% {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
 
 [data-district='districtVisible'] > th{
   background-color:#bdbdc2 ;
-  
+  position:sticky;
+  top:0;
+  z-index: 500;
 }
+[data-district='districtVisible'] > td:first-child{
+  text-align: start;
+}
+
 
 .district-space > td{
   background-color: white;
@@ -137,7 +157,53 @@ code {
 }
 .lastUpdated > p{
   margin: 0 auto;
+  
 }
+.deltaconfirmed{
+  font-size: .7rem;
+    color: #FF073A;
+    font-weight: bold;
+    margin-right: 2px;
+}
+.deltarecovered{
+  font-size: .7rem;
+    color: #28a745;
+    font-weight: bold;
+    margin-right: 2px;
+}
+.deltadeceased{
+  font-size: .7rem;
+    color: #6c757d;
+    font-weight: bold;
+    margin-right: 2px;
+}
+
+@media only screen and (max-width: 500px) and (min-width:320px) {
+
+  .lastUpdated > p{
+    font-size: 0.6rem;
+  }
+  .lastUpdated{
+    margin-top: .8em;
+  }
+  .district_state_chart_container{
+    width: 90% !important;
+    height: 18em;
+  }
+  .test{
+    width: 85% !important;
+    margin-top: 15px;
+  }
+
+}
+@media only screen and (max-width: 1440px) and (min-width:1024px) {
+
+  .district_state_chart_container{
+    width: 39% !important;
+    left: 2rem !important;
+  }
+}
+
 .test{
   position: absolute;
     width: 50%;
@@ -155,17 +221,15 @@ code {
 
 .district_state_chart_container{
   position: relative;
-  width: 45%;
-  /* right: 0; */
-  margin-bottom: 14px;
-  margin-top: 20px;
-  margin-left: 15px;
-  display: flex;
-  border: 1px solid #bdbdc2;
-  /* height: 103%; */
-  justify-content: center;
-  border-radius: 5px;
-  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+    width: 55%;
+    right: -.8rem;
+    margin-bottom: .5rem;
+    margin-top: .5rem;
+    display: flex;
+    border: 1px solid #bdbdc2;
+    justify-content: center;
+    border-radius: .5rem;
+    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
 }
 
 body{

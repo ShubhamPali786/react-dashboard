@@ -1,6 +1,6 @@
 import React from 'react';
 import { Line, Bar } from 'react-chartjs-2';
-import Classes from './dataSpreadChart.module.css';
+import Classes from './dataSpreadCharts.module.css';
 import DataSpreadChart from './DataSpreadChart/dataSpreadChart';
 
 const dataSpreadCharts = (props) => {
