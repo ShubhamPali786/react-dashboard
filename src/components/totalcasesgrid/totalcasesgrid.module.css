@@ -49,7 +49,7 @@
 }
 .TodaysCount p {
 	text-align: center;
-	color: #999;
 	margin: 0 auto;
 	line-height: 2em;
+	font-weight: 500;
 }

@@ -35,7 +35,7 @@ class Covid19Dashboard extends Component {
 			},
 			{
 				name: 'Active',
-				newlyAdded: 300,
+				newlyAdded: 0,
 				totalCount: todayCasesCount.confirmed - todayCasesCount.recovered - todayCasesCount.deaths,
 			},
 			{

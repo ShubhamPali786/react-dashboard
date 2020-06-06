@@ -18,10 +18,12 @@
 
 @media only screen and (max-width: 500px) and (min-width:320px){
 	.Headers {
-		
+		height: 5%;
 	}
 	.Headers h2 {
-		font-size: 6vw;
+        line-height: 0;
+        font-size: 1.2rem;
+        
 	}
 
 }

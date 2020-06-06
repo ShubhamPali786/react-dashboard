@@ -187,7 +187,7 @@ code {
     margin-top: .8em;
   }
   .district_state_chart_container{
-    width: 90% !important;
+    width: 90% !important;  
     height: 18em;
   }
   .test{
@@ -221,8 +221,8 @@ code {
 
 .district_state_chart_container{
   position: relative;
-    width: 55%;
-    right: -.8rem;
+    width: 44%;
+    right: 0;
     margin-bottom: .5rem;
     margin-top: .5rem;
     display: flex;

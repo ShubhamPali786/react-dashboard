@@ -95,7 +95,7 @@ const drilldowntable = (props) => {
 
 		if(currentDateTime.getMonth()-lastUpdatedDate.getMonth()>0)
 		{
-			lastUpdatedMsg=`Last Updated ${currentDateTime.getMonth()-lastUpdatedDate.getMonth()} months ago.`
+			lastUpdatedMsg= `Last Updated ${currentDateTime.getMonth()-lastUpdatedDate.getMonth()} months ago.`
 			return lastUpdatedMsg;
 		}
 		if(currentDateTime.getDate() - lastUpdatedDate.getDate()>0)
@@ -201,8 +201,8 @@ const drilldowntable = (props) => {
 				</div>
 			</div>
 			{props.is_loaded && (
-				<div className="district_state_chart_container">
-					<div className={classes.overall_percent_container}>
+				<div className="district_state_chart_container" >
+					<div className={classes.overall_percent_container} style={{display:"none"}}>
 						<div className={classes.state_title}>
 							<p>{props.state_percent.state}</p>
 						</div>

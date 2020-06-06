@@ -4,6 +4,7 @@ import Classes from './dataSpreadChart.module.css';
 
 const dataSpreadChart = (props) => {
 	let dailyConfirm_ChartOptions = {
+		
 		key: 'dailyConfirmed',
 		labels: {
 			fontColor: 'rgb(255,255,255)',
@@ -42,6 +43,7 @@ const dataSpreadChart = (props) => {
 	};
 
 	let monthyconfirmed_ChartOptions = {
+		
         key:'monthyconfirmed',
 		labels: {
 			fontColor: 'rgb(255,255,255)',

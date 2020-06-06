@@ -137,6 +137,9 @@ th:first-child{
 
 	.table_container{
 		overflow-x: scroll;
+		width: 100%;
+		height: 50rem;
+		
 	}
 
 	tr{
@@ -145,15 +148,16 @@ th:first-child{
 
 	.statewise_component{
 		display: block;
+		margin: 1px;
 	}
 
 	.tableContainer{
 		width: 100%;
-    margin: 0 auto;
+   		 margin: 0 auto;
 	}
 	table{
 		
-		width: 100%;
+		width: 20%;
 	}
 	.overall_percent_container{
 		display: none;
