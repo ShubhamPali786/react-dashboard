@@ -2,15 +2,12 @@ import React from 'react';
 import classes from './drilldowntable.module.css';
 import DistrictChart from '../../components/dataVisualization/districtCharts/DistrictChart';
 
+
 const drilldowntable = (props) => {
 	let district_classes = 'districtVisible';
 
 	
 	const getTableRowByProp = (item,propcases) =>{
-		/*<td>
-					<span className={classes[className]}><i class="fa fa-arrow-up" aria-hidden="true"></i>{item[className]} </span>
-					<span >{item[propName]}</span>
-				</td>*/
 		let htmlString = "";
 		if(parseInt(item.delta[propcases])>0)
 		{
@@ -37,8 +34,6 @@ const drilldowntable = (props) => {
 			let lastUpdatedTime = props.statewise_cases.find(item=>item.statecode===stateCode).lastupdatedtime;
 
 			let lastUpdatedMsg = getLastUpdateTime(lastUpdatedTime);
-
-
 
 			let currentTarget = event.currentTarget;
 			let htmlString =
@@ -150,8 +145,6 @@ const drilldowntable = (props) => {
 	};
 
 	return (
-		
-		<div className={classes.statewise_component}>
 			<div className={classes.tableContainer}>
 				<div>
 					<h2>State-wise Cases</h2>
@@ -200,29 +193,7 @@ const drilldowntable = (props) => {
 					</table>
 				</div>
 			</div>
-			{props.is_loaded && (
-				<div className="district_state_chart_container" >
-					<div className={classes.overall_percent_container} style={{display:"none"}}>
-						<div className={classes.state_title}>
-							<p>{props.state_percent.state}</p>
-						</div>
-						<div className={classes.confirmed_perent}>
-							<p>{props.state_percent.confirmedPercent}</p>
-							<p style={{ 'font-size': 'small' }}>( Confirmed )</p>
-						</div>
-						<div className={classes.recovered_perent}>
-							<p>{props.state_percent.recoveredPercent}</p>
-							<p style={{ 'font-size': 'small' }}>( Recovered )</p>
-						</div>
-						<div className={classes.active_perent}>
-							<p>{props.state_percent.activePercent}</p>
-							<p style={{ 'font-size': 'small' }}>( Active )</p>
-						</div>
-					</div>
-					<DistrictChart {...props} />
-				</div>
-			)}
-		</div>
+		
 	);
 };
 

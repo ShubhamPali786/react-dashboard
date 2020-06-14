@@ -4,7 +4,7 @@ import TotalGridCases from '../../components/totalcasesgrid/totalcasesgrid';
 import axios from '../../api/axios-covid19';
 import DataSpreadChart from '../../components/dataVisualization/dataSpreadCharts';
 import Classes from './covid19Dashboard.module.css';
-import StateWiseBuilder from '../StateWiseViewBuilder/StateWiseBuilder';
+import StateWiseBuilder from '../StateWiseTableViewBuilder/StateWiseBuilder';
 
 class Covid19Dashboard extends Component {
 	state = {
@@ -55,7 +55,10 @@ class Covid19Dashboard extends Component {
 			dailyConfirmed: [],
 			dailyDeath: [],
 			dailyRecovered: [],
-			date: [],
+			totaldeceased:[],
+			totalconfirmed:[],
+			totalrecovered:[],
+			date: []
 		};
 		let monthlyCases = [];
 
@@ -64,8 +67,12 @@ class Covid19Dashboard extends Component {
 			let MONTH = data.date.trim().split(' ')[1];
 			if (!['January', 'February', 'March'].includes(MONTH)) {
 				daily_overall_cases.dailyConfirmed.push(parseInt(data.dailyconfirmed));
-				daily_overall_cases.dailyDeath.push(parseInt(data.dailyrecovered));
+				daily_overall_cases.dailyDeath.push(parseInt(data.dailydeceased));
 				daily_overall_cases.dailyRecovered.push(parseInt(data.dailyrecovered));
+				daily_overall_cases.totalconfirmed.push(parseInt(data.totalconfirmed));
+				daily_overall_cases.totaldeceased.push(parseInt(data.totaldeceased));
+				daily_overall_cases.totalrecovered.push(parseInt(data.totalrecovered));
+				
 				daily_overall_cases.date.push(data.date.trim());
 
 				if (monthlyCases.length > 0) {
@@ -132,14 +139,16 @@ class Covid19Dashboard extends Component {
 			<Auxilary>
 				<div className={Classes.DashboardContent}>{totalgridcase}</div>
 
-				{this.state.isLoaded ? (
+				{this.state.isLoaded ? 
+				(
+					<Auxilary>
 					<DataSpreadChart
 						daily_cases={this.state.daily_overall_cases}
 						monthly_Cases={this.state.monthly_overall_cases}
 					/>
+					<StateWiseBuilder statewise_cases ={this.state.statewise_cases} all_state_time_series={this.state.daily_overall_cases} />
+					</Auxilary>
 				) : null}
-				{this.state.isLoaded ? (<StateWiseBuilder statewise_cases ={this.state.statewise_cases} />):null}
-
 			</Auxilary>
 		);
 	}

@@ -88,7 +88,7 @@ const dataSpreadCharts = (props) => {
 		<div className={Classes.LineCharts}>
 			{spreadChart_data.map((item) => {
 				return (
-					<DataSpreadChart {...item}
+					<DataSpreadChart {...item} 
 						daily_cases={props.daily_cases}/>
 				);
 			})}

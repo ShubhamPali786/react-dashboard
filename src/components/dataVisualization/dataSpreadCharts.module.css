@@ -1,11 +1,12 @@
 .Chart {
 	position: relative;
-	width: 355px;
+	width: 90%;
 	height: 260px;
 	top: -33px;
-	left: 15px;
+	
 	border-radius: 8px;
 	color: white;
+	margin: 0 auto;
 	
 }
 .Chart:hover{
@@ -38,9 +39,9 @@
 		margin-top: 5em;
 	}
 	.Chart{
-		width: 85%;
-		left: 1.5em;
-		height: 85%;
+		width: 95%;
+     	height: 85%;
+  	    margin: 0 auto;
 	}
 
 }

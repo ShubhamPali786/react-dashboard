@@ -1,5 +1,5 @@
 .Headers {
-	height: 6%;
+	height: 2.5rem;
     background-color: white;
     position: fixed;
     width: 100%;
@@ -12,17 +12,23 @@
 .Headers h2 {
 	padding-left: 1rem;
     color: #007bff;
-    line-height: 0rem;
-    font-size: 2rem;
+    position: absolute;
+    margin: 0;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
 }
 
 @media only screen and (max-width: 500px) and (min-width:320px){
 	.Headers {
-		height: 5%;
+        
+        display: flex;
 	}
 	.Headers h2 {
-        line-height: 0;
-        font-size: 1.2rem;
+        position: absolute;
+        top: 50%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
         
 	}
 
