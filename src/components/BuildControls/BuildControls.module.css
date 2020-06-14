@@ -1,0 +1,41 @@
+select option {
+
+    
+}
+.BuildControls_Container{
+    height: 14%;
+    width: 99%;
+}
+.SelectState_Control_Container{
+    display: flex;
+    position: relative;
+    height: 50%;
+    margin-top: 0.5rem;
+}
+.SelectState_Control_Container > div{
+    width: 50%;
+}
+.SelectState_Control_Container > div > select{
+    width: 100%;
+}
+.DisplayDensity_Control_Container{
+    display: flex;
+    position: relative;
+    width: 50%;
+}
+.Density_Control{
+    border: 1px solid;
+    border-radius: .8rem;
+    height: 100%;
+    width: 48%;
+    text-align: center;
+    margin: 0 auto;
+    background-color: #E0DDE0;
+    color: #596772;
+    transition: all .5s;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px;
+}
+.Density_Control > h4{
+    margin: 0 auto;
+}

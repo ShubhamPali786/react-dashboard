@@ -32,7 +32,7 @@
 
 
 .ChartGrid {
-	width: 387px;
+	width: 33%;
 	margin: 15px;
 	height: 286px;
 	background-color: #fff;
@@ -46,6 +46,7 @@
 @media only screen and (max-width: 500px) and (min-width:320px) {
 	.ChartGrid{
 		width: 90%;
+    	margin: 0 auto;
 		margin-bottom: 5em;
 	}
 }

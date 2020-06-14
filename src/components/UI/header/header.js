@@ -7,7 +7,7 @@ const Headers = () => {
 	return (
 		<header className={Classes.Headers}>
             <Logo/>
-			<h2> Covid19 India Dashboard</h2>
+			<div style={{position:'relative',width:'100%'}}><h2> Covid19 India Dashboard</h2> </div>
 		</header>
 	);
 };
