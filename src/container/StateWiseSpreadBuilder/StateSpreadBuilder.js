@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Classes from './StateSpreadBuilder.module.css';
 import axios from '..//..//api/axios-covid19';
 import DistrictChart from '..//..//components/dataVisualization/districtCharts/DistrictChart';
 import Auxilary from '..//..//hoc/auxilary/auxilary';
@@ -42,28 +41,36 @@ class StateSpreadBuilder extends Component {
 	};
 
 	componentDidMount() {
-		this.setStateDropdownList();
-		this.setState({ updateChartFunct: (statecode)=>this.selectStateHandler(null,statecode) });
-
+		this.setState({ updateChartFunct: (statecode) => this.selectStateHandler(null, statecode) });
+		this.startLoader(true);
 		axios
 			.get('v3/min/timeseries.min.json')
 			.then((response) => {
+				this.startLoader(false);
 				this.setStateTimeSeriesData(response.data);
 			})
 			.catch((error) => console.log(error));
 	}
-
-	setStateDropdownList = () => {
+	startLoader = (isLoaderStart) => {
+		isLoaderStart
+			? document.querySelector('#loadingDiv').classList.add('loadingDiv')
+			: (document.querySelector('#loadingDiv').className = 'loaderHide');
+	};
+	setStateDropdownList = (stateTimeSeriesData) => {
 		let stateData = [...this.props.statewise_cases];
 		let dropDownList = [];
 
 		stateData.forEach((item) => {
-			let dropdownObj = {
-				state: item.state,
-				statecode: item.statecode,
-				selected: false
-			};
-			dropDownList.push(dropdownObj);
+			if (item.statecode !== 'TT') {
+				if (stateTimeSeriesData.findIndex((stateitem) => stateitem.statecode === item.statecode) !== -1) {
+					let dropdownObj = {
+						state: item.state,
+						statecode: item.statecode,
+						selected: false,
+					};
+					dropDownList.push(dropdownObj);
+				}
+			}
 		});
 		dropDownList.push({
 			state: 'All State',
@@ -91,25 +98,28 @@ class StateSpreadBuilder extends Component {
 	setStateTimeSeriesData = (response_data) => {
 		let stateObjArray = this.convertObjToArray(response_data, 'statecode');
 		this.setState({ state_timeseries_data: stateObjArray, state_code: 'TT' });
+		this.setStateDropdownList(stateObjArray);
 		this.updateDataSets('TT');
 
 		this.setState({ is_loaded: true });
 	};
 
 	selectStateHandler = (event, statecode) => {
-		let stateCode=statecode ? statecode : event.currentTarget.value
-		
+		let stateCode = statecode ? statecode : event.currentTarget.value;
+
+		if (statecode) {
+			if (this.state.stateDropDownList.findIndex((item) => item.statecode === statecode) === -1) return;
+		}
+
 		let stateDropDownList = [...this.state.stateDropDownList];
 		stateDropDownList.forEach((item) => {
 			if (item.statecode === stateCode) item.selected = true;
 			else item.selected = false;
 		});
 
-		this.setState({ state_code: stateCode,stateDropDownList:stateDropDownList });
+		this.setState({ state_code: stateCode, stateDropDownList: stateDropDownList });
 		this.updateDataSets(stateCode);
 	};
-
-	
 
 	onCheckboxChange = (event) => {
 		if (!this.state.state_code) return;
@@ -152,9 +162,7 @@ class StateSpreadBuilder extends Component {
 		}
 	};
 
-	changeDropDownList = (statecode)=>{
-
-	}
+	changeDropDownList = (statecode) => {};
 
 	updateDataSets = (stateCode) => {
 		let displayDensity = this.state.densityClass.daily ? 'daily' : 'cumulative';
@@ -322,15 +330,19 @@ class StateSpreadBuilder extends Component {
 	render() {
 		return (
 			<Auxilary>
-				<BuildControls
-					selectStateHandler={this.selectStateHandler}
-					onCheckboxChange={this.onCheckboxChange}
-					onClickHandler={this.displayDensityClickHandler}
-					densityClass={this.state.densityClass}
-					buildControlsMeta={this.state.buildControlsMeta}
-					stateData={this.state.stateDropDownList}
-				/>
-				{this.state.is_loaded ? <DistrictChart data={this.state.datasets} /> : null}
+				{this.state.is_loaded ? (
+					<Auxilary>
+						<BuildControls
+							selectStateHandler={this.selectStateHandler}
+							onCheckboxChange={this.onCheckboxChange}
+							onClickHandler={this.displayDensityClickHandler}
+							densityClass={this.state.densityClass}
+							buildControlsMeta={this.state.buildControlsMeta}
+							stateData={this.state.stateDropDownList}
+						/>{' '}
+						<DistrictChart data={this.state.datasets} />{' '}
+					</Auxilary>
+				) : null}
 			</Auxilary>
 		);
 	}

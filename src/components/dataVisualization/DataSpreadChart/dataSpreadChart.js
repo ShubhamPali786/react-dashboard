@@ -7,24 +7,24 @@ const dataSpreadChart = (props) => {
 		
 		key: 'dailyConfirmed',
 		labels: {
-			fontColor: 'rgb(255,255,255)',
+			fontColor: 'white',
 		},
 		title: {
 			display: true,
-			text: 'Confirmed Cases Spread',
+			text: 'Confirmed Cases',
 			fontSize: 20,
-			fontColor: 'rgb(255,255,255)',
+			fontColor: '#FF073A',
 		},
 		legend: {
-			display: false,
-			position: 'right',
+			display: false
+			
 		},
 		maintainAspectRatio: false,
 		scales: {
 			yAxes: [
 				{
 					ticks: {
-						fontColor: 'white',
+						fontColor: '#003f5c',
 						stepSize: 500,
 						beginAtZero: true,
 					},
@@ -33,7 +33,7 @@ const dataSpreadChart = (props) => {
 			xAxes: [
 				{
 					ticks: {
-						fontColor: 'white',
+						fontColor: '#003f5c',
 						stepSize: 500,
 						beginAtZero: true,
 					},
@@ -52,7 +52,7 @@ const dataSpreadChart = (props) => {
 			display: true,
 			text: 'Monthly Spread',
 			fontSize: 20,
-			fontColor: 'rgb(255,255,255)',
+			fontColor: '#2E9BC6',
 		},
 		legend: {
 			display: false,
@@ -63,7 +63,7 @@ const dataSpreadChart = (props) => {
 			yAxes: [
 				{
 					ticks: {
-						fontColor: 'white',
+						fontColor: '#003f5c',
 						stepSize: 5000,
 						beginAtZero: true,
 					},
@@ -72,7 +72,7 @@ const dataSpreadChart = (props) => {
 			xAxes: [
 				{
 					ticks: {
-						fontColor: 'white',
+						fontColor: '#003f5c',
 						stepSize: 500,
 						beginAtZero: true,
 					},
@@ -80,6 +80,45 @@ const dataSpreadChart = (props) => {
 			],
 		},
 	};
+	let weeklyconfirmed_ChartOptions = {
+		
+        key:'weeklyconfirmed',
+		labels: {
+			fontColor: 'rgb(255,255,255)',
+		},
+		title: {
+			display: true,
+			text: 'Weekly Spread',
+			fontSize: 20,
+			fontColor: '#ef4648',
+		},
+		legend: {
+			display: false,
+			position: 'right',
+		},
+		maintainAspectRatio: false,
+		scales: {
+			yAxes: [
+				{
+					ticks: {
+						fontColor: '#003f5c',
+						stepSize: 5000,
+						beginAtZero: true,
+					},
+				},
+			],
+			xAxes: [
+				{
+					ticks: {
+						fontColor: '#003f5c',
+						stepSize: 500,
+						beginAtZero: true,
+					},
+				},
+			],
+		},
+	};
+
 
 	let dailyRecovered_ChartOptions = {
         key:'dailyRecovered',
@@ -90,7 +129,8 @@ const dataSpreadChart = (props) => {
 			display: true,
 			text: 'Recovered Cases',
 			fontSize: 20,
-			fontColor: 'rgb(255,255,255)',
+			fontColor: '#28A745'
+			
 		},
 		legend: {
 			display: false,
@@ -101,7 +141,7 @@ const dataSpreadChart = (props) => {
 			yAxes: [
 				{
 					ticks: {
-						fontColor: 'white',
+						fontColor: '#003f5c',
 						stepSize: 500,
 						beginAtZero: true,
 					},
@@ -110,7 +150,7 @@ const dataSpreadChart = (props) => {
 			xAxes: [
 				{
 					ticks: {
-						fontColor: 'white',
+						fontColor: '#003f5c',
 						stepSize: 5000,
 						beginAtZero: true,
 					},
@@ -119,7 +159,7 @@ const dataSpreadChart = (props) => {
 		},
 	};
 
-	let chart_options = [dailyConfirm_ChartOptions, dailyRecovered_ChartOptions, monthyconfirmed_ChartOptions];
+	let chart_options = [dailyConfirm_ChartOptions, dailyRecovered_ChartOptions, monthyconfirmed_ChartOptions,weeklyconfirmed_ChartOptions];
     let chartContent = null;
     let index = chart_options.findIndex((item) => item.key === props.chartName);;
 
@@ -132,7 +172,7 @@ const dataSpreadChart = (props) => {
 					</div>
 					<div className={Classes.ChartDetails}>
 						<div className={Classes.Detail}>
-							<i class="fa fa-arrow-up upwardIcon" aria-hidden="true"></i>
+							<i className="fa fa-arrow-up upwardIcon" aria-hidden="true"></i>
 							<p>
 								<span className={Classes.newCasestxt+ ' red'}>
 									+{props.daily_cases.todayCases[0].newlyAdded}
@@ -152,8 +192,8 @@ const dataSpreadChart = (props) => {
                 <div className={Classes.ChartDetails}>
                     <div className={Classes.Detail}>
                         {(props.increasedRate >0) ? (
-                        <i class="fa fa-arrow-up upwardIcon red" aria-hidden="true"></i>):
-                        (<i class="fa fa-arrow-down upwardIcon green" aria-hidden="true"></i>)}
+                        <i className="fa fa-arrow-up upwardIcon red" aria-hidden="true"></i>):
+                        (<i className="fa fa-arrow-down upwardIcon green" aria-hidden="true"></i>)}
                         <p>
                         {props.increasedRate>0 ?(  <span className={Classes.newCasestxt+ ' red'}>
                                 +{props.increasedRate}
@@ -173,7 +213,7 @@ const dataSpreadChart = (props) => {
                 </div>
                 <div className={Classes.ChartDetails}>
                     <div className={Classes.Detail}>
-                        <i class="fa fa-arrow-up upwardIcon green" aria-hidden="true"></i>
+                        <i className="fa fa-arrow-up upwardIcon green" aria-hidden="true"></i>
                         <p>
                             <span className={Classes.newCasestxt+ ' green'}>
                                 +{props.daily_cases.todayCases[2].newlyAdded}
@@ -183,7 +223,22 @@ const dataSpreadChart = (props) => {
                     </div>
                 </div>
             </div>)
-            break;
+			break;
+		   case 'weeklyconfirmed':
+            chartContent = (<div className={Classes.ChartGrid}>
+                <div className={props.classes} style={{boxShadow: "0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px #ef4648"}}>
+                    <Bar data={props.dataset} options={chart_options[index]} />
+                </div>
+                <div className={Classes.ChartDetails}>
+                    <div className={Classes.Detail}>
+              
+                        <p>
+                             cases than last month
+                        </p>
+                    </div>
+                </div>
+			</div>)
+			break;
 		default:
 
 			break;

@@ -33,6 +33,7 @@ class StateWiseBuilder extends Component {
 
 	onStateHover = (event) => {
 		let stateCode = event.currentTarget.dataset.statecode;
+		if(this.updateSpreadChartFunc.current)
 		this.updateSpreadChartFunc.current.state.updateChartFunct(stateCode);
 		this.setState({ state_code: stateCode });
 	};
@@ -197,11 +198,14 @@ class StateWiseBuilder extends Component {
 						state_percent={this.state.state_percentage}
 						all_state_time_series={this.props.all_state_time_series}
 					/>
-					{this.state.is_loaded && (
-						<div className="district_state_chart_container">
-							<StateSpreadBuilder {...this.props}  ref={this.updateSpreadChartFunc}/>
+					<div className="district_state_chart_container">
+						<div id="loadingDiv" style={{display:"none"}}>
+						<p>Loading...</p>
 						</div>
+					{this.state.is_loaded && (
+							<StateSpreadBuilder {...this.props}  ref={this.updateSpreadChartFunc}/>
 					)}
+					</div>
 				</div>
 			</div>
 		);

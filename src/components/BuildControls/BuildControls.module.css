@@ -1,10 +1,8 @@
-select option {
 
-    
-}
 .BuildControls_Container{
     height: 14%;
     width: 99%;
+    z-index: 20;
 }
 .SelectState_Control_Container{
     display: flex;
@@ -12,7 +10,7 @@ select option {
     height: 50%;
     margin-top: 0.5rem;
 }
-.SelectState_Control_Container > div{
+.SelectState_Control_Container .selectControl{
     width: 50%;
 }
 .SelectState_Control_Container > div > select{
@@ -35,7 +33,22 @@ select option {
     transition: all .5s;
     cursor: pointer;
     box-shadow: 1px 1px 1px;
+    
 }
 .Density_Control > h4{
     margin: 0 auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+@media only screen and (max-width: 500px) and (min-width: 320px) {
+
+    .SelectState_Control_Container .selectControl{
+        width: 30%;
+    }
+ .DisplayDensity_Control_Container{
+     width: 70%;
+ }   
 }

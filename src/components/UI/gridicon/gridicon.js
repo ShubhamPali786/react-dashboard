@@ -34,6 +34,8 @@ const gridIcon = (props) => {
 				</div>
 			);
 			break;
+			default:
+				break;
 	}
 
 	return gridIconContainer;

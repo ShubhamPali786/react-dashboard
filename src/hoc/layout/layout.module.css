@@ -1,4 +1,6 @@
 .Content {
-   margin-top: 125px;
-   
+   margin-top: 7rem;
+    min-height: 90%;
+    position: relative;
+    margin-bottom: 1rem;
 }
