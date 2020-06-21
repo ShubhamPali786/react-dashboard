@@ -9,43 +9,31 @@
 	margin: 0 auto;
 	
 }
-.Chart:hover{
+/* .Chart:hover{
 	top:-60px;
 	transition: top 0.2s linear;
-}
+} */
 .LineChart{
-	background-color:#1CBFD4;
-	box-shadow: 0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px #1CBFD4;
+	background-color: white;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px #FF073A;
 }
 
 .BarChart{
-	background-color:#FC9811;
-	box-shadow: 0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px #FC9811;
+	background-color: white;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px #2E9BC6;
 	
 }
 .RecoverdChart{
-	background-color:#28a745;
+	background-color:white;
 	box-shadow: 0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px #28a745;
 }
 
 .LineCharts {
 	display: flex;
 	justify-content: center;
-	margin-top: 50px;
-}
-@media only screen and (max-width: 500px) and (min-width:320px) {
-	.LineCharts {
-		display: block;
-		margin-top: 5em;
-	}
-	.Chart{
-		width: 95%;
-     	height: 85%;
-  	    margin: 0 auto;
-	}
 
+	flex-wrap: wrap;
 }
-
 .ChartGrid {
 	width: 387px;
 	margin: 15px;
@@ -79,6 +67,11 @@
 	font-weight: bold;
     font-size: 16px;
 }
-.stateContainer{
-	
+@media only screen and (max-width: 500px) and (min-width:320px) {
+	.Chart{
+		width: 95%;
+     	
+  	    margin: 0 auto;
+	}
+
 }

@@ -11,42 +11,94 @@ class Covid19Dashboard extends Component {
 		daily_overall_cases: {},
 		isLoaded: false,
 		monthly_overall_cases: {},
-		statewise_cases:[]
+		statewise_cases:[],
+		weeklyData:{}
 	};
 
 	componentDidMount() {
+		this.startLoader(true);
 		axios
 			.get('data.json')
 			.then((response) => {
+				this.startLoader(false);
 				this.setTotalCasesDetail(response.data);
 			})
 			.catch((error) => console.log(error));
 
 		
 	}
+	startLoader=(isLoaderStart)=>{
+		isLoaderStart?document.querySelector("#loaderContainer").classList.add('loaderContainer'):document.querySelector("#loaderContainer").className="loaderHide";
+	}
+   getLastUpdateTime = (lastUpdateTime) =>{
+		let date_time = lastUpdateTime.split(" ");
+		let date_arr= date_time[0].split("/");
+		let time_arr = date_time[1].split(":");
+
+		let lastUpdatedDate = new Date(parseInt(date_arr[2]),parseInt(date_arr[1])-1,parseInt(date_arr[0]),parseInt(time_arr[0]),parseInt(time_arr[1]));
+
+		let currentDateTime = new Date();
+
+		let lastUpdatedMsg="";
+
+		if(currentDateTime.getMonth()-lastUpdatedDate.getMonth()>0)
+		{
+			let timeDiff = currentDateTime.getMonth() - lastUpdatedDate.getMonth();
+			let timeUnit = timeDiff===1 ?"month" :"months";
+			lastUpdatedMsg= `${currentDateTime.getMonth()-lastUpdatedDate.getMonth()} ${timeUnit} ago`;
+			return lastUpdatedMsg;
+		}
+		if(currentDateTime.getDate() - lastUpdatedDate.getDate()>0)
+		{
+			let timeDiff = currentDateTime.getDate() - lastUpdatedDate.getDate();
+			let timeUnit = timeDiff===1 ?"day" :"days";
+			lastUpdatedMsg = `${currentDateTime.getDate() - lastUpdatedDate.getDate()} ${timeUnit} ago`;
+			return lastUpdatedMsg;
+		}
+		if(currentDateTime.getHours() - lastUpdatedDate.getHours()>0)
+		{
+			let timeDiff = currentDateTime.getHours() - lastUpdatedDate.getHours();
+			let timeUnit = timeDiff===1 ?"hour" :"hours";
+			lastUpdatedMsg = `${currentDateTime.getHours() - lastUpdatedDate.getHours()} ${timeUnit} ago`;
+			return lastUpdatedMsg;
+		}
+		if(currentDateTime.getMinutes() - lastUpdatedDate.getMinutes()>0)
+		{
+			let timeDiff = currentDateTime.getMinutes() - lastUpdatedDate.getMinutes();
+			let timeUnit = timeDiff===1 ?"min" :"min";
+			lastUpdatedMsg = `${currentDateTime.getMinutes() - lastUpdatedDate.getMinutes()} ${timeUnit} ago`;
+			return lastUpdatedMsg;
+		}
+		return lastUpdatedMsg;
+	}
 
 	setTotalCasesDetail(data) {
 		const todayCasesCount = data.statewise.find((item) => item.statecode === 'TT');
+		let lastUpdatedMsg = this.getLastUpdateTime(todayCasesCount.lastupdatedtime);
 		const todayCount = [
 			{
 				name: 'Confirmed',
 				newlyAdded: todayCasesCount.deltaconfirmed,
 				totalCount: todayCasesCount.confirmed,
+				lastUpdatedDate:lastUpdatedMsg
 			},
 			{
 				name: 'Active',
 				newlyAdded: 0,
 				totalCount: todayCasesCount.confirmed - todayCasesCount.recovered - todayCasesCount.deaths,
+				lastUpdatedDate:lastUpdatedMsg
 			},
 			{
 				name: 'Recovered',
 				newlyAdded: todayCasesCount.deltarecovered,
 				totalCount: todayCasesCount.recovered,
+				lastUpdatedDate:lastUpdatedMsg
 			},
 			{
 				name: 'Deceased',
 				newlyAdded: todayCasesCount.deltadeaths,
 				totalCount: todayCasesCount.deaths,
+				lastUpdatedDate:lastUpdatedMsg
 			},
 		];
 
@@ -99,6 +151,7 @@ class Covid19Dashboard extends Component {
 				}
 			}
 		});
+		let weeklyData =  this.prepareWeeklyDataset(data);
 		let monthlyCasesObj = {
 			months: [],
 			confirmed: [],
@@ -116,9 +169,44 @@ class Covid19Dashboard extends Component {
 			daily_overall_cases: daily_overall_cases,
 			isLoaded: true,
 			monthly_overall_cases: monthlyCasesObj,
-			statewise_cases:data.statewise
+			statewise_cases:data.statewise,
+			weeklyData:weeklyData
 		});
 	}
+
+	prepareWeeklyDataset=(data)=>{
+		//data.cases_time_series
+		let timeseriesdata = [...data.cases_time_series]
+		let currentWeek = timeseriesdata.slice((timeseriesdata.length-1)-7,(timeseriesdata.length-1));
+		let previousWeek = timeseriesdata.slice((timeseriesdata.length-1)-14,(timeseriesdata.length-1)-7);
+
+		let currentWeekConfirmedTotal =currentWeek.reduce(function(acc, obj) { return acc + parseInt(obj.dailyconfirmed); },0);
+		let previousWeekConfirmedTotal = previousWeek.reduce(function(acc, obj) { return acc + parseInt(obj.dailyconfirmed); },0);
+		
+		let currentWeekRecoveredTotal = currentWeek.reduce(function(acc, obj) { return acc + parseInt(obj.dailyrecovered); },0);
+		let previousWeekRecoveredTotal = previousWeek.reduce(function(acc, obj) { return acc + parseInt(obj.dailyrecovered); },0);
+
+		let currentWeekDeathsTotal = currentWeek.reduce(function(acc, obj) { return acc + parseInt(obj.dailydeceased); },0);
+		let previousWeekDeathsTotal = previousWeek.reduce(function(acc, obj) { return acc + parseInt(obj.dailydeceased); },0);
+
+		
+		
+		
+		let currentWeekLabel = "[ "+currentWeek[0].date.trim() + " - " + currentWeek[currentWeek.length-1].date.trim()+" ]";
+		let previousWeekLabel ="[ "+previousWeek[0].date.trim() + " - " + previousWeek[previousWeek.length-1].date.trim()+" ]";
+
+		return {
+			label:[previousWeekLabel,currentWeekLabel],
+			data:{
+			weeklyConfirmed:[previousWeekConfirmedTotal,currentWeekConfirmedTotal],
+			weeklyRecovered:[previousWeekRecoveredTotal,currentWeekRecoveredTotal],
+			weeklyDeaths:[previousWeekDeathsTotal,currentWeekDeathsTotal]
+		},
+			name:"weeklyDataset"
+		}
+	}
+	
+
 
 	render() {
 		let totalgridcase = null;
@@ -128,6 +216,7 @@ class Covid19Dashboard extends Component {
 					<TotalGridCases
 						name={item.name}
 						newlyAdded={item.newlyAdded}
+						lastUpdatedDate = {item.lastUpdatedDate}
 						totalCount={item.totalCount}
 						key={item.name}
 					/>
@@ -145,6 +234,7 @@ class Covid19Dashboard extends Component {
 					<DataSpreadChart
 						daily_cases={this.state.daily_overall_cases}
 						monthly_Cases={this.state.monthly_overall_cases}
+						weeklyData={this.state.weeklyData}
 					/>
 					<StateWiseBuilder statewise_cases ={this.state.statewise_cases} all_state_time_series={this.state.daily_overall_cases} />
 					</Auxilary>

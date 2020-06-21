@@ -1,0 +1,32 @@
+.footerContainer{
+    background-color: white;
+    height: 10%;
+    
+}
+.gitLinkContainer{
+    padding-top: .5rem;
+}
+.gitLinkContainer >p{
+    background-color: black;
+    color: white;
+}
+.ApiLinkContainer{
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+}
+.ApiLinkContainer > p{
+    background-color: #007BFF;
+    color: white;
+}
+.footerContainer p{
+    font-size: 1rem;
+    margin: 0 auto;
+    width: 50%;
+    text-align: center;
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 0.4rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+

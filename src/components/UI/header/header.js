@@ -1,5 +1,4 @@
 import React from 'react';
-import Aux from '../../../hoc/auxilary/auxilary';
 import Logo from '../../logo/logo';
 import Classes from './header.module.css';
 

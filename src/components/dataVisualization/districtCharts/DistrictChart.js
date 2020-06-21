@@ -1,5 +1,5 @@
 import React from 'react';
-import { Line, Bar } from 'react-chartjs-2';
+import { Line } from 'react-chartjs-2';
 
 const DistrictChart = (props) => {
 	var options = {
@@ -10,7 +10,7 @@ const DistrictChart = (props) => {
 		},
 		title: {
 			display: true,
-			text: 'Confirmed Cases Spread',
+			text: '',
 			fontSize: 20,
 			fontColor: 'rgb(255,255,255)',
 		},
@@ -24,7 +24,7 @@ const DistrictChart = (props) => {
 				{
 					ticks: {
 						fontColor: 'black',
-						stepSize: 1000,
+						stepSize: 100,
 						beginAtZero: true,
 					},
 				},
@@ -33,7 +33,7 @@ const DistrictChart = (props) => {
 				{
 					ticks: {
 						fontColor: 'black',
-						stepSize: 2,
+						stepSize:10,
 						beginAtZero: true,
 					},
 				},

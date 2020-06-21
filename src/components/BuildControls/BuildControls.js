@@ -3,37 +3,15 @@ import Classes from './BuildControls.module.css';
 import Auxilary from '..//..//hoc/auxilary/auxilary';
 
 const BuildControls = (props) => {
-	let checkBoxControls = [
-		{
-			name: 'confirmed',
-			checked: true,
-			labeltxt: 'Confirmed',
-		},
-		{
-			name: 'recovered',
-			checked: false,
-			labeltxt: 'Recovered',
-		},
-		{
-			name: 'deceased',
-			checked: false,
-			labeltxt: 'Deceased',
-		},
-		{
-			name: 'tested',
-			checked: false,
-			labeltxt: 'Tested',
-		},
-	];
 
 	return (
 		<div className={Classes.BuildControls_Container}>
 			<div className={Classes.SelectState_Control_Container}>
-				<div>
-					<select onChange={props.selectStateHandler}>
+				<div className={Classes.selectControl}>
+					<select onChange={props.selectStateHandler} value={props.stateData.find(item=>item.selected===true).statecode}>
 						{props.stateData.map((item) => {
 							return (
-								<option value={item.statecode} key={item.statecode} selected ={item.selected?"selected":""}>
+								<option value={item.statecode} key={item.statecode} >
 									{item.state}
 								</option>
 							);
@@ -61,15 +39,16 @@ const BuildControls = (props) => {
 				<div>
 					{props.buildControlsMeta.map((item) => {
 						return (
-							<Auxilary>
+							<Auxilary key={item.name}>
 								<input
 									type="checkbox"
 									id={item.name}
+									key={item.name}
 									name={item.name}
 									onChange={props.onCheckboxChange}
 									checked={item.checked ? true : false}
 								/>
-								<label for={item.name}>{item.labeltxt}</label>
+								<label htmlFor={item.name}>{item.labeltxt}</label>
 							</Auxilary>
 						);
 					})}

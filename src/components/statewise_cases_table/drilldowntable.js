@@ -1,6 +1,5 @@
 import React from 'react';
 import classes from './drilldowntable.module.css';
-import DistrictChart from '../../components/dataVisualization/districtCharts/DistrictChart';
 
 
 const drilldowntable = (props) => {
@@ -135,7 +134,7 @@ const drilldowntable = (props) => {
 		if (parseInt(item[className]) > 0) {
 			return (
 				<td>
-					<span className={classes[className]}><i class="fa fa-arrow-up" aria-hidden="true"></i>{item[className]} </span>
+					<span className={classes[className]}><i className="fa fa-arrow-up" aria-hidden="true"></i>{item[className]} </span>
 					<span >{item[propName]}</span>
 				</td>
 			);
@@ -170,12 +169,13 @@ const drilldowntable = (props) => {
 											data-statecode={item.statecode}
 											data-isshow={false}
 											onMouseOver={(ev) => props.onstateHover(ev)}
+											key={item.statecode}
 										>
 											<td>
 												<div className={classes.collapsableDiv}>
 													<span className="arrow">
 														<i
-															class="fa fa-arrow-circle-o-right arrowicon"
+															className="fa fa-arrow-circle-o-right arrowicon"
 															aria-hidden="true"
 														></i>
 													</span>
