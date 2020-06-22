@@ -175,7 +175,7 @@ class Covid19Dashboard extends Component {
 	}
 
 	prepareWeeklyDataset=(data)=>{
-		//data.cases_time_series
+		
 		let timeseriesdata = [...data.cases_time_series]
 		let currentWeek = timeseriesdata.slice((timeseriesdata.length-1)-7,(timeseriesdata.length-1));
 		let previousWeek = timeseriesdata.slice((timeseriesdata.length-1)-14,(timeseriesdata.length-1)-7);

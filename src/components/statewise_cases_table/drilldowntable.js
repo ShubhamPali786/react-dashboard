@@ -86,25 +86,32 @@ const drilldowntable = (props) => {
 		let currentDateTime = new Date();
 
 		let lastUpdatedMsg="";
-
 		if(currentDateTime.getMonth()-lastUpdatedDate.getMonth()>0)
 		{
-			lastUpdatedMsg= `Last Updated ${currentDateTime.getMonth()-lastUpdatedDate.getMonth()} months ago.`
+			let timeDiff = currentDateTime.getMonth() - lastUpdatedDate.getMonth();
+			let timeUnit = timeDiff===1 ?"month" :"months";
+			lastUpdatedMsg= `${currentDateTime.getMonth()-lastUpdatedDate.getMonth()} ${timeUnit} ago`;
 			return lastUpdatedMsg;
 		}
 		if(currentDateTime.getDate() - lastUpdatedDate.getDate()>0)
 		{
-			lastUpdatedMsg = `Last Updated ${currentDateTime.getDate() - lastUpdatedDate.getDate()} days ago.`
+			let timeDiff = currentDateTime.getDate() - lastUpdatedDate.getDate();
+			let timeUnit = timeDiff===1 ?"day" :"days";
+			lastUpdatedMsg = `${currentDateTime.getDate() - lastUpdatedDate.getDate()} ${timeUnit} ago`;
 			return lastUpdatedMsg;
 		}
 		if(currentDateTime.getHours() - lastUpdatedDate.getHours()>0)
 		{
-			lastUpdatedMsg = `Last Updated ${currentDateTime.getHours() - lastUpdatedDate.getHours()} hours ago.`
+			let timeDiff = currentDateTime.getHours() - lastUpdatedDate.getHours();
+			let timeUnit = timeDiff===1 ?"hour" :"hours";
+			lastUpdatedMsg = `${currentDateTime.getHours() - lastUpdatedDate.getHours()} ${timeUnit} ago`;
 			return lastUpdatedMsg;
 		}
 		if(currentDateTime.getMinutes() - lastUpdatedDate.getMinutes()>0)
 		{
-			lastUpdatedMsg = `Last Updated ${currentDateTime.getMinutes() - lastUpdatedDate.getMinutes()} hours ago.`
+			let timeDiff = currentDateTime.getMinutes() - lastUpdatedDate.getMinutes();
+			let timeUnit = timeDiff===1 ?"min" :"min";
+			lastUpdatedMsg = `${currentDateTime.getMinutes() - lastUpdatedDate.getMinutes()} ${timeUnit} ago`;
 			return lastUpdatedMsg;
 		}
 		return lastUpdatedMsg;

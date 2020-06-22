@@ -1,5 +1,5 @@
 import React from 'react';
-import { Line } from 'react-chartjs-2';
+import { Line,Bar } from 'react-chartjs-2';
 
 const DistrictChart = (props) => {
 	var options = {
@@ -15,8 +15,11 @@ const DistrictChart = (props) => {
 			fontColor: 'rgb(255,255,255)',
 		},
 		legend: {
-			display: false,
-			position: 'right',
+			display: true,
+			position: 'top',
+			labels :{
+				usePointStyle :true
+			}
 		},
 		maintainAspectRatio: false,
 		scales: {
@@ -27,6 +30,8 @@ const DistrictChart = (props) => {
 						stepSize: 100,
 						beginAtZero: true,
 					},
+					display:false,
+					type:'logarithmic'
 				},
 			],
 			xAxes: [

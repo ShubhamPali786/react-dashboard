@@ -29,12 +29,12 @@ const dataSpreadCharts = (props) => {
 		labels: props.daily_cases.date,
 		datasets: [
 			{
-				label: 'Confirmed Cases',
+				label: 'Recovered Cases',
 				hoverBackgroundColor: 'green', // on hover change color
 				hoverBorderColor: 'white', // hover point border color
 				borderColor: '#73C686',
 				borderWidth: 1,
-				data: props.daily_cases.dailyConfirmed,
+				data: props.daily_cases.dailyRecovered,
 				fill: true,
 				backgroundColor:'#E4F4E8',
 				pointRadius:0,
