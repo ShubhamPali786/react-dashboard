@@ -181,8 +181,8 @@ class StateSpreadBuilder extends Component {
 				case 'confirmed':
 					dataObj = {
 						label: 'Confirmed Cases',
-						backgroundColor: 'white',
-						hoverBackgroundColor: 'red',
+						backgroundColor: '#FFE0E6',
+						hoverBackgroundColor: '#FF073A',
 						hoverBorderColor: 'white',
 						borderColor: '#FF073A',
 						data: [...stateupdateObj.confirmed],
@@ -192,10 +192,10 @@ class StateSpreadBuilder extends Component {
 					break;
 				case 'recovered':
 					dataObj = {
-						label: 'recoverd Cases',
-						backgroundColor: 'white',
-						hoverBackgroundColor: 'red',
-						hoverBorderColor: 'white',
+						label: 'Recoverd Cases',
+						backgroundColor: '#28a745',
+						hoverBackgroundColor: '#28a745',
+						hoverBorderColor: '#28a745',
 						borderColor: '#28a745',
 						data: [...stateupdateObj.recovered],
 					};
@@ -204,12 +204,12 @@ class StateSpreadBuilder extends Component {
 					break;
 				case 'deceased':
 					dataObj = {
-						label: 'Decesed Cases',
-						backgroundColor: 'white',
-						hoverBackgroundColor: 'red',
+						label: 'Deceased Cases',
+						backgroundColor: '#6c757d',
+						hoverBackgroundColor: '#6c757d',
 						hoverBorderColor: 'white',
 						borderColor: '#6c757d',
-						data: [...stateupdateObj.deceased],
+						data: [...stateupdateObj.deceased]
 					};
 					dataset = this.createDataSet(dataObj);
 					datasets.push(dataset);
@@ -218,7 +218,7 @@ class StateSpreadBuilder extends Component {
 					dataObj = {
 						label: 'Tested Patients',
 						backgroundColor: 'white',
-						hoverBackgroundColor: 'red',
+						hoverBackgroundColor: '#1CBFD4',
 						hoverBorderColor: 'white',
 						borderColor: '#1CBFD4',
 						data: [...stateupdateObj.tested],
@@ -247,7 +247,10 @@ class StateSpreadBuilder extends Component {
 			borderColor: dataObj.borderColor,
 			borderWidth: 1,
 			data: dataObj.data,
-			fill: false,
+			pointRadius:2,
+			fill:false,
+			pointBackgroundColor:'white'
+			
 		};
 	};
 	prepareData = (statecode) => {

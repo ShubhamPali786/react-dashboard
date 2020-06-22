@@ -16,7 +16,8 @@ const dataSpreadChart = (props) => {
 			fontColor: '#FF073A',
 		},
 		legend: {
-			display: false
+			display: false,
+			
 			
 		},
 		maintainAspectRatio: false,
@@ -56,7 +57,7 @@ const dataSpreadChart = (props) => {
 		},
 		legend: {
 			display: false,
-			position: 'right',
+			position: 'top',
 		},
 		maintainAspectRatio: false,
 		scales: {
@@ -64,7 +65,7 @@ const dataSpreadChart = (props) => {
 				{
 					ticks: {
 						fontColor: '#003f5c',
-						stepSize: 5000,
+						stepSize: 30000,
 						beginAtZero: true,
 					},
 				},
