@@ -85,7 +85,7 @@ const drilldowntable = (props) => {
 
 		let currentDateTime = new Date();
 
-		let lastUpdatedMsg="";
+		let lastUpdatedMsg="Updated Just Now";
 		if(currentDateTime.getMonth()-lastUpdatedDate.getMonth()>0)
 		{
 			let timeDiff = currentDateTime.getMonth() - lastUpdatedDate.getMonth();
@@ -110,10 +110,11 @@ const drilldowntable = (props) => {
 		if(currentDateTime.getMinutes() - lastUpdatedDate.getMinutes()>0)
 		{
 			let timeDiff = currentDateTime.getMinutes() - lastUpdatedDate.getMinutes();
-			let timeUnit = timeDiff===1 ?"min" :"min";
+			let timeUnit = timeDiff===1 ?"min" :"mins";
 			lastUpdatedMsg = `${currentDateTime.getMinutes() - lastUpdatedDate.getMinutes()} ${timeUnit} ago`;
 			return lastUpdatedMsg;
 		}
+
 		return lastUpdatedMsg;
 	}
 
@@ -177,6 +178,7 @@ const drilldowntable = (props) => {
 											data-isshow={false}
 											onMouseOver={(ev) => props.onstateHover(ev)}
 											key={item.statecode}
+											className={classes.stateRow}
 										>
 											<td>
 												<div className={classes.collapsableDiv}>

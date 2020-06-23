@@ -39,7 +39,7 @@ class Covid19Dashboard extends Component {
 
 		let currentDateTime = new Date();
 
-		let lastUpdatedMsg="";
+		let lastUpdatedMsg="Just Now";
 
 		if(currentDateTime.getMonth()-lastUpdatedDate.getMonth()>0)
 		{
@@ -65,7 +65,7 @@ class Covid19Dashboard extends Component {
 		if(currentDateTime.getMinutes() - lastUpdatedDate.getMinutes()>0)
 		{
 			let timeDiff = currentDateTime.getMinutes() - lastUpdatedDate.getMinutes();
-			let timeUnit = timeDiff===1 ?"min" :"min";
+			let timeUnit = timeDiff===1 ?"min" :"mins";
 			lastUpdatedMsg = `${currentDateTime.getMinutes() - lastUpdatedDate.getMinutes()} ${timeUnit} ago`;
 			return lastUpdatedMsg;
 		}

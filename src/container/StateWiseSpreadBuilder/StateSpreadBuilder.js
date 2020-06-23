@@ -77,8 +77,13 @@ class StateSpreadBuilder extends Component {
 			statecode: 'TT',
 			selected: true,
 		});
+		var sortedList = this.sortArraybyProperty(dropDownList,"state",true)
+		this.setState({ stateDropDownList: sortedList });
+	};
 
-		this.setState({ stateDropDownList: dropDownList });
+     sortArraybyProperty = (array, prop, isasc) => {
+		if (isasc) return array.sort((a, b) => (a[prop] > b[prop] ? 1 : -1));
+		else return array.sort((a, b) => (a[prop] < b[prop] ? 1 : -1));
 	};
 
 	convertObjToArray = (obj, propertyKey) => {

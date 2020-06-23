@@ -10,7 +10,9 @@
 	overflow-y: scroll;
 	height: 286px;
 }
-
+.stateRow{
+	cursor: pointer;
+}
 thead th {
 	position:sticky;
 	top:0;
