@@ -18,17 +18,21 @@ const DistrictChart = (props) => {
 			display: true,
 			position: 'top',
 			labels :{
-				usePointStyle :true
-			}
+				usePointStyle :true,
+				fontFamily:"Source Sans Pro, sans-serif",
+				fontColor: '#003f5c'
+			},
+			
 		},
 		maintainAspectRatio: false,
 		scales: {
 			yAxes: [
 				{
 					ticks: {
-						fontColor: 'black',
+						fontColor: '#003f5c',
 						stepSize: 100,
 						beginAtZero: true,
+						fontFamily:"Source Sans Pro, sans-serif"
 					},
 					display:false,
 					type:'logarithmic'
@@ -37,9 +41,10 @@ const DistrictChart = (props) => {
 			xAxes: [
 				{
 					ticks: {
-						fontColor: 'black',
+						fontColor: '#003f5c',
 						stepSize:10,
 						beginAtZero: true,
+						fontFamily:"Source Sans Pro, sans-serif"
 					},
 				},
 			],

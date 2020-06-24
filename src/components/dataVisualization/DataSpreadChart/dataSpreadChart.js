@@ -14,11 +14,10 @@ const dataSpreadChart = (props) => {
 			text: 'Confirmed Cases',
 			fontSize: 20,
 			fontColor: '#FF073A',
+			fontFamily:"Source Sans Pro, sans-serif"
 		},
 		legend: {
-			display: false,
-			
-			
+			display: false
 		},
 		maintainAspectRatio: false,
 		scales: {
@@ -28,6 +27,7 @@ const dataSpreadChart = (props) => {
 						fontColor: '#003f5c',
 						stepSize: 500,
 						beginAtZero: true,
+						fontFamily:"Source Sans Pro, sans-serif"
 					},
 				},
 			],
@@ -37,6 +37,7 @@ const dataSpreadChart = (props) => {
 						fontColor: '#003f5c',
 						stepSize: 500,
 						beginAtZero: true,
+						fontFamily:"Source Sans Pro, sans-serif"
 					},
 				},
 			],
@@ -54,6 +55,7 @@ const dataSpreadChart = (props) => {
 			text: 'Monthly Spread',
 			fontSize: 20,
 			fontColor: '#2E9BC6',
+			fontFamily:"'Source Sans Pro', sans-serif"
 		},
 		legend: {
 			display: false,
@@ -67,6 +69,7 @@ const dataSpreadChart = (props) => {
 						fontColor: '#003f5c',
 						stepSize: 30000,
 						beginAtZero: true,
+						fontFamily:"Source Sans Pro, sans-serif"
 					},
 				},
 			],
@@ -76,6 +79,7 @@ const dataSpreadChart = (props) => {
 						fontColor: '#003f5c',
 						stepSize: 500,
 						beginAtZero: true,
+						fontFamily:"Source Sans Pro, sans-serif"
 					},
 				},
 			],
@@ -92,6 +96,7 @@ const dataSpreadChart = (props) => {
 			text: 'Weekly Spread',
 			fontSize: 20,
 			fontColor: '#ef4648',
+			fontFamily:"Source Sans Pro, sans-serif"
 		},
 		legend: {
 			display: false,
@@ -105,6 +110,7 @@ const dataSpreadChart = (props) => {
 						fontColor: '#003f5c',
 						stepSize: 5000,
 						beginAtZero: true,
+						fontFamily:"Source Sans Pro, sans-serif"
 					},
 				},
 			],
@@ -114,6 +120,7 @@ const dataSpreadChart = (props) => {
 						fontColor: '#003f5c',
 						stepSize: 500,
 						beginAtZero: true,
+						fontFamily:"Source Sans Pro, sans-serif"
 					},
 				},
 			],
@@ -130,7 +137,8 @@ const dataSpreadChart = (props) => {
 			display: true,
 			text: 'Recovered Cases',
 			fontSize: 20,
-			fontColor: '#28A745'
+			fontColor: '#28A745',
+			fontFamily:"Source Sans Pro, sans-serif"
 			
 		},
 		legend: {
@@ -145,6 +153,7 @@ const dataSpreadChart = (props) => {
 						fontColor: '#003f5c',
 						stepSize: 500,
 						beginAtZero: true,
+						fontFamily:"Source Sans Pro, sans-serif"
 					},
 				},
 			],
@@ -154,6 +163,7 @@ const dataSpreadChart = (props) => {
 						fontColor: '#003f5c',
 						stepSize: 5000,
 						beginAtZero: true,
+						fontFamily:"Source Sans Pro, sans-serif"
 					},
 				},
 			],

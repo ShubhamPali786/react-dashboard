@@ -144,7 +144,9 @@ th:first-child{
 		height: 30rem;
 		
 	}
-
+	.table_container table{
+		width: 130%;
+	}
 	tr{
 		line-height: 1.5rem;
 	}

@@ -88,7 +88,7 @@ const dataSpreadCharts = (props) => {
 		labels: props.weeklyData.label,
 		datasets: [
 			{
-				label: 'Weekly Spread',
+				label: 'Confirmed Cases',
 				fill: false,
 				lineTension: 0.5,
 				backgroundColor: '#ef4648',
@@ -99,7 +99,7 @@ const dataSpreadCharts = (props) => {
 				data: props.weeklyData.data.weeklyConfirmed
 			},
 			{
-				label: 'Weekly Spread',
+				label: 'Recovered Cases',
 				fill: false,
 				lineTension: 0.5,
 				backgroundColor: '#f99e4c',
@@ -110,7 +110,7 @@ const dataSpreadCharts = (props) => {
 				data: props.weeklyData.data.weeklyRecovered
 			},
 			{
-				label: 'Weekly Spread',
+				label: 'Deceased Cases',
 				fill: false,
 				lineTension: 0.5,
 				backgroundColor: '#f36f38',
